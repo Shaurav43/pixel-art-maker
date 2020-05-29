@@ -6,9 +6,9 @@ document.getElementById('sizePicker').addEventListener('submit', function(event)
     makeGrid(height, width);
   });
 
-function componentToHex(c) {
+function componentToHex(component) {
     // convert the received string to integer then in hexadecimal
-    var hex = parseInt(c).toString(16);
+    var hex = parseInt(component).toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
 // take the rgb value in text format
@@ -49,7 +49,7 @@ function makeGrid(height, width) {
                 const colorPicker = document.getElementById('colorPicker').value;
                 //check if cell color is not null
                 if (cellColor.style.backgroundColor){
-                    // comparision in hexadecimal value
+                    // comparision in hexadecimal color value
                     if(rgbToHex(cellColor.style.backgroundColor) != colorPicker){
                         cellColor.style.backgroundColor = colorPicker;
                     } else{
