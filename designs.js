@@ -7,11 +7,13 @@ document.getElementById('sizePicker').addEventListener('submit', function(event)
   });
 
 function componentToHex(component) {
-    // convert the received string to integer then in hexadecimal
+    // convert the component to integer then in hexadecimal
     var hex = parseInt(component).toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
-// take the rgb value in text format
+// eg: rgb will be in "rgb(0,1,2)"
+// this function will strip it to ["0","1","2"]
+// return "#000102" hexcode color
 function rgbToHex(rgb) {
     //check if the rgb value is not empty
     while(rgb != ""){
@@ -35,28 +37,24 @@ function makeGrid(height, width) {
     // loop for rows
     for (let n = 0; n < height; n++){
         let row = canvas.insertRow(n);
-        // loop for individual cells
+        // loop for cell
         for (let m = 0; m < width; m++){
             let cell = row.insertCell(m);
-            //label individual cell
+            //label cell
             cell.id = "cell[" + n + "," + m +"]";
 
             // Add click event to the entire table
             cell.addEventListener('click',function changeColor(event){
-                //gets the id of the clicked cell
+                //get the id of the clicked cell
                 const cellColor = document.getElementById(event.target.id);
-                //gets the color value form the colorPicker
+                //get the color value form the colorPicker
                 const colorPicker = document.getElementById('colorPicker').value;
-                //check if cell color is not null
-                if (cellColor.style.backgroundColor){
-                    // comparision in hexadecimal color value
-                    if(rgbToHex(cellColor.style.backgroundColor) != colorPicker){
-                        cellColor.style.backgroundColor = colorPicker;
-                    } else{
-                        cellColor.style.backgroundColor  ="";
-                    }
-                } else {
+                //compare color value
+                if(rgbToHex(cellColor.style.backgroundColor) != colorPicker){
                     cellColor.style.backgroundColor = colorPicker;
+                } else{
+                    //remove cell color
+                    cellColor.style.backgroundColor  ="";
                 }
             });
         }
