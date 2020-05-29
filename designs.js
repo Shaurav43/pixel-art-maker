@@ -1,4 +1,5 @@
 // Select size input
+// sumbit click event
 document.getElementById('sizePicker').addEventListener('submit', function(event) {
     event.preventDefault();
     const height = document.getElementById('inputHeight').value;
@@ -42,21 +43,20 @@ function makeGrid(height, width) {
             let cell = row.insertCell(m);
             //label cell
             cell.id = "cell[" + n + "," + m +"]";
-
-            // Add click event to the entire table
-            cell.addEventListener('click',function changeColor(event){
-                //get the id of the clicked cell
-                const cellColor = document.getElementById(event.target.id);
-                //get the color value form the colorPicker
-                const colorPicker = document.getElementById('colorPicker').value;
-                //compare color value
-                if(rgbToHex(cellColor.style.backgroundColor) != colorPicker){
-                    cellColor.style.backgroundColor = colorPicker;
-                } else{
-                    //remove cell color
-                    cellColor.style.backgroundColor  ="";
-                }
-            });
         }
     }
+    // table click event
+    canvas.addEventListener('click',function changeColor(event){
+        //get cell id
+        const cellColor = document.getElementById(event.target.id);
+        //get the color value form the colorPicker
+        const colorPicker = document.getElementById('colorPicker').value;
+        //compare color value
+        if(rgbToHex(cellColor.style.backgroundColor) != colorPicker){
+            cellColor.style.backgroundColor = colorPicker;
+        } else{
+            //remove cell color
+            cellColor.style.backgroundColor  ="";
+        }
+});
 }
