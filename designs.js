@@ -18,13 +18,10 @@ function componentToHex(component) {
 function rgbToHex(rgb) {
     //check if the rgb value is not empty
     while(rgb != ""){
-        // remove "rgbC"
-        rgb = rgb.replace("rgb(","");
-        //remove ")"
-        rgb = rgb.replace(")","");
-        //convert into array
-        rgb = rgb.split(",");
-        return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+        //remove 'rgb(' at first and ')' at last and splits forming an  array
+        rgb = rgb.replace(/^rgb\(|\)$/g, '').split(',');
+        //converts into hexcode
+        return '#' + rgb.map(x=> componentToHex(x)).join('');
     }
     return "";
 }
