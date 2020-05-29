@@ -1,11 +1,14 @@
-body {
+body,
+input[type=submit] {
     text-align: center;
+    font-weight: bold;
 }
 
 h1 {
     font-family: Monoton;
     font-size: 70px;
     margin: 0.2em;
+    text-shadow: -4px -4px #ddd;
 }
 
 h2 {
@@ -35,6 +38,10 @@ td {
     width: 20px;
 }
 
-input[type=number] {
+input[type=submit],
+input[type=number]{
+    border: none;
+    display: inline-block;
+    box-shadow:-2px -2px #ddd;
     width: 6em;
 }
