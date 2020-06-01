@@ -42,6 +42,8 @@ In this project, I have used my front-end programming skills including:
 ```
 git clone https://github.com/Shaurav43/pixel-art-maker.git
 ```
+* Run project on browser: `open index.html`
+
 ## License
 
 `pixel art maker` is [MIT](https://github.com/Shaurav43/pixel-art-maker/blob/master/LICENSE) licensed.
