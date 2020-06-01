@@ -1,7 +1,7 @@
 # Pixel Art Maker
 
  * Nanodegree: Intro to Programming
- * Module: Intro to CSS
+ * Module: JavaScript
 
 ## Project Summary
 
@@ -16,7 +16,7 @@ In this project, I have used my front-end programming skills including:
 
 * HTML
 * CSS
-* JAVASCRIPT
+* JavaScript
 
 ## Project Requirements
 
